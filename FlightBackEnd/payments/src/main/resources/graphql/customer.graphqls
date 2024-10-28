@@ -1,0 +1,24 @@
+scalar Long
+
+type Customer {
+    id: ID!
+    name: String!
+    address: String
+    cardNumber:String!
+    expirationMonth:String!
+    expirationYear:String!
+    ccv:String!
+
+    #creditCard: CreditCard
+}
+
+type Query {
+    findAllCustomers: [Customer]!
+    countCustomers: Long!
+}
+
+type Mutation {
+    createCustomer(name: String!, address: String!, cardNumber:String!, expirationMonth:String!, expirationYear:String!, ccv:String!): Customer!
+    updateCustomer(id: ID!, name: String, address: String): Customer!
+    deleteCustomer(id: ID!): Boolean
+}
